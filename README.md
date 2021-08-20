@@ -13,6 +13,8 @@ click to this link [here]https://optimistic-davinci-a2738a.netlify.app/)
 - ReactJs
 - Bootstrap
 - LocationQI API 
+- weather API
+- moviedb API
 
 ![location ](first.png)
 
@@ -57,5 +59,25 @@ Estimate of time needed to complete: one hour
 Start time: 6:00pm
 
 Finish time: 6:40pm
+
+Actual time needed to complete: 40 min
+____________
+Name of feature: movies.
+
+Estimate of time needed to complete: 2 hour
+
+Start time: 3:00pm
+
+Finish time: 6:30pm
+
+Actual time needed to complete: 3 hours and a half
+______________________-
+Name of feature: weather (live).
+
+Estimate of time needed to complete: one hour
+
+Start time: 2:00pm
+
+Finish time: 2:40pm
 
 Actual time needed to complete: 40 min
