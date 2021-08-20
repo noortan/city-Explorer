@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Col, Row, Card,Alert} from 'react-bootstrap';
 import Header from './Header';
 import Weather from './Weather';
+import Movie from './Movie';
 class Main extends Component {
     constructor() {
         super()
@@ -11,8 +12,10 @@ class Main extends Component {
             cityData: [],
             catchErr: false,
             errMsg: '',
+            moviesData: [] ,
             weatherData: [],
             showMap: false,
+            errorType :'',
         }
     }
 
@@ -41,9 +44,9 @@ class Main extends Component {
         }
 
     }
-    getWeather = async (city) => {
-        let cityName = city.split(',')[0];
-        let url = `${process.env.REACT_APP_LOCALHOST}/weather/${cityName}`;
+    getWeather = async (lon, lat) => {
+    
+        let url = `${process.env.REACT_APP_LOCALHOST}/weather/${lon}/${lat}`;
         console.log(url);
         try {
             let wData = await axios.get(url);
@@ -56,12 +59,34 @@ class Main extends Component {
              this.setState({
                 errMsg: `${error.response.status} | The weather for given location NOT FOUND`,
                 catchErr: true,
+                errorType:error ,
                 weatherData: [],
             });
             // console.log(this.state.errMsg);
         }
     };
     
+    getMovies = async (city) => {
+        let url = `${process.env.REACT_APP_LOCALHOST}/movies/${city}`;
+
+        console.log(url);
+        try {
+            let mData = await axios.get(url);
+            await this.setState({
+                moviesData: mData.data,
+            });
+        } catch (error) {
+            this.setState({
+                errMsg: ` | No Movies Data for given location`,
+                showToast: true,
+                catchErr: true,
+                moviesData: [],
+                errorType:error,
+            });
+        }
+
+    };
+
     render() {
         return (
             <>
@@ -93,7 +118,39 @@ class Main extends Component {
                         </Col>
                        
                     </Row>
-                    <Row></Row>
+                    <Row className="justify-content-center m-3" style={{ paddingBottom: '40px' }}>
+                    <h1 className='text-center m-3' style={{background:'#ddd'}}>Weather Forecast </h1>
+                    <Col className=' m-1'>
+                        {this.state.weatherData &&
+                            <div className='d-flex p-2' style={{ flexWrap: 'wrap' }}>
+                                {this.state.weatherData.map((element, index) =>
+                                    <Weather
+                                        key={index}
+                                        date={element.date}
+                                        description={element.description}
+                                        temp={element.temp}
+                                    />)}
+                            </div>}
+                            </Col>
+                    </Row>
+                    <Row  className="justify-content-center m-3 " style={{ paddingBottom: '40px' }}>
+                    <h1 className='text-center m-3' style={{background:'#ddd',marginBottom:"10px"}}>Movies </h1>
+                    <>
+                        {this.state.moviesData &&
+                            <>
+                                {this.state.moviesData.map((element, index) => <Movie
+                                    key={index}
+                                    released_on={element.released_on}
+                                    title={element.title}
+                                    image_url={element.image_url}
+                                    total_votes={element.total_votes}
+                                    average_votes={element.average_votes}
+                                    overview ={element.overview}
+                                />
+                                )}
+                            </>}
+                            </>
+                    </Row>
                 </Container>
             </>
         );
