@@ -15,7 +15,7 @@ click to this link [here]https://optimistic-davinci-a2738a.netlify.app/)
 - LocationQI API 
 - weather API
 - moviedb API
-
+- ReST API
 ![location ](first.png)
 
 ![map](map.png)
@@ -81,3 +81,35 @@ Start time: 2:00pm
 Finish time: 2:40pm
 
 Actual time needed to complete: 40 min
+______________________________________
+Name of feature: Set up city-explorer-api repository.
+
+Estimate of time needed to complete: one hour
+
+Start time: 2:00pm
+
+Finish time: 2:40pm
+
+Actual time needed to complete: 40 min 
+
+____________________________________________-
+Name of feature: Weather (front-end & back-end).
+
+Estimate of time needed to complete: 2 hour
+
+Start time: 3:00pm
+
+Finish time: 6:30pm
+
+Actual time needed to complete: 3 hours and a half
+__________________________________________--
+
+Name of feature: Errors.
+
+Estimate of time needed to complete: one hour
+
+Start time: 6:30pm
+
+Finish time: 7:00pm
+
+Actual time needed to complete: 30 min
