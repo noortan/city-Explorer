@@ -113,3 +113,26 @@ Start time: 6:30pm
 Finish time: 7:00pm
 
 Actual time needed to complete: 30 min
+________________________________________________
+
+Name of feature: Caching weather.
+
+Estimate of time needed to complete: one hour
+
+Start time: 2:00pm
+
+Finish time: 3:10pm
+
+Actual time needed to complete: one hour and 10 min
+
+_________________________________________________
+
+Name of feature: Caching Movies.
+
+Estimate of time needed to complete: one hour
+
+Start time: 3:20pm
+
+Finish time: 4:40pm
+
+Actual time needed to complete: one hour and 20 min

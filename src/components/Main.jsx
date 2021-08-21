@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Container, Col, Row, Card,Alert} from 'react-bootstrap';
 import Header from './Header';
 import Weather from './Weather';
-import Movie from './Movie';
+import Movies from './Movies';
 class Main extends Component {
     constructor() {
         super()
@@ -35,6 +35,7 @@ class Main extends Component {
                 catchErr: false,
             });
             this.getweather(locationData.data[0].display_name)
+            this.getMovies(locationData.data[0].display_name.split(',')[0])
             console.log(this.state.cityData);
         } catch (e) {
             await this.setState({
@@ -77,7 +78,7 @@ class Main extends Component {
             });
         } catch (error) {
             this.setState({
-                errMsg: ` | No Movies Data for given location`,
+                errMsg: ` | No Movies Data found`,
                 showToast: true,
                 catchErr: true,
                 moviesData: [],
@@ -138,7 +139,7 @@ class Main extends Component {
                     <>
                         {this.state.moviesData &&
                             <>
-                                {this.state.moviesData.map((element, index) => <Movie
+                                {this.state.moviesData.map((element, index) => <Movies
                                     key={index}
                                     released_on={element.released_on}
                                     title={element.title}
